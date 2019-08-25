@@ -1,37 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 import { Container } from 'react-bootstrap';
 import Form from '../components/Form';
-import api from '../utils/api';
+// import api from '../utils/api';
 
 const Home = () => {
-  const getHomes = () => {
-    api.houses.getHouses().then(res => {
-      console.log(res.data);
-    }, []);
-  };
+  // const [state, setGetAllHomes] = useState('')
 
-  useEffect(() => {
-    getHomes();
-    
-  }, []);
+  // const getHomes = async () => {
+  //   await api.houses.getHouses().then(res => setGetAllHomes(...state, setGetAllHomes))
+  // };
 
-  const [formData, setFormData] = useState('');
+//  useEffect(() => {
+//     getHomes()
+//   }, []);
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setFormData({ [name]: value })
-  }
+  // const [formData, setFormData] = useState({
+  //   address: '',
+  //   price: ''
+  // });
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  // const handleChange = event => {
+  //   const { name, value } = event.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
+  // console.log(formData);
 
-  }
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   console.log('submitted');
+  // };
 
-  
   return (
     <Container>
-      <Form onChange={handleInputChange} onSubmit={handleSubmit} />
+      <Form />
     </Container>
   );
 };
