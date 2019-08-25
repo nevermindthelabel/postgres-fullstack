@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import API from '../utils/api';
 import api from '../utils/api';
 
 const Forms = () => {
