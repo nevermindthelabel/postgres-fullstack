@@ -1,7 +1,5 @@
-const Router = require('express-promise-router');
+const router = require('express').Router()
 const api = require('./api')
-
-const router = new Router();
 
 router.use('/api', api);
 
