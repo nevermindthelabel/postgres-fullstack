@@ -3,48 +3,42 @@ import { Form, Button } from 'react-bootstrap';
 import api from '../utils/api';
 
 const Forms = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    price: ''
+  });
 
-   const [formData, setFormData] = useState({
-     address: '',
-     rent: ''
-   });
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-   const handleChange = event => {
-     const { name, value } = event.target;
-     setFormData({ ...formData, [name]: value });
-   };
+  const { name, price } = formData;
 
-   console.log(formData);
-
-   const { address, rent } = formData;
-
-  //  const handleSubmit = event => {
-  //    event.preventDefault();
-  //    console.log('submitted');
-  //  };
+  console.log(formData);
 
   return (
     <div>
       <Form>
         <h2 className="text-center text-danger">Enter a new house</h2>
-        <Form.Group>
+        <Form.Group controlId="formBasicAddress">
           <Form.Label>Property address</Form.Label>
           <Form.Control
             type="text"
-            name="address"
+            name="name"
+            value={name}
             onChange={handleChange}
-            value={address}
             placeholder="Enter address"
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId="formBasicRent">
           <Form.Label>Enter monthly Rent</Form.Label>
           <Form.Control
             type="text"
-            name="rent"
+            name="price"
+            value={price}
             onChange={handleChange}
-            value={rent}
             placeholder="Monthly Rent"
           />
         </Form.Group>
@@ -54,7 +48,7 @@ const Forms = () => {
           onClick={e => {
             e.preventDefault();
             console.log('clicked');
-            api.newHouse(formData);
+            api.houses.newHouse(formData);
           }}
         >
           Submit
