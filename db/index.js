@@ -11,7 +11,7 @@ const pool = new Pool({
 
 
 const getHouses = (req, res) => {
-  pool.query("SELECT * FROM houses ORDER BY id ASC", (error, results) => {
+  pool.query("SELECT * FROM house ORDER BY id ASC", (error, results) => {
     if (error) {
       throw error;
     }
