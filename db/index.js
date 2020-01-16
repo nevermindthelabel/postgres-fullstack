@@ -21,7 +21,7 @@ const getHouses = (req, res) => {
 
 const getHousesById = (req, res) => {
   const id = parseInt(req.params.id);
-  pool.query("SELECT * FROM houses WHERE id = $1", [id], (error, results) => {
+  pool.query("SELECT * FROM house WHERE id = $1", [id], (error, results) => {
     if (error) {
       throw error;
     }
