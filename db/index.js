@@ -32,7 +32,7 @@ const getHousesById = (req, res) => {
 const createHouse = (req, res) => {
   const { name, price } = req.body;
   pool.query(
-    "INSERT INTO houses (name, price) VALUES ($1, $2)",
+    "INSERT INTO house (name, price) VALUES ($1, $2)",
     [name, price],
     (error, results) => {
       if (error) {
@@ -58,9 +58,21 @@ const updateHouse = (req, res) => {
   );
 };
 
+const removeHouse = (req, res) => {
+  const id = parseInt(req.params.id);
+
+  pool.query('DELETE FROM house WHERE id = $1', [id], (error, result) => {
+    if (error) {
+      throw error
+    }
+    res.status(201).json({ msg: "house deleted"})
+  })
+}
+
 module.exports = {
   getHouses,
   getHousesById,
   createHouse,
-  updateHouse
+  updateHouse,
+  removeHouse
 };
