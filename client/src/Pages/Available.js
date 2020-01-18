@@ -15,13 +15,17 @@ const Available = () => {
   }, []);
 
   return (
-      <Container>
-        <h2>things and stuff</h2>
-        {
-          loading ? <h2>loading...</h2> :
-available.map(house => (<Card key={house.id}><h2>{house.address}</h2><p>{house.price}</p></Card>))
-        }
-      </Container>
+    <Container>
+      <h2>Available Homes</h2>
+      {
+        loading ? <h2>loading...</h2> :
+          available.map(house => (<Card style={{maxWidth:'50%', margin:'auto'}} key={house.id}>
+            <h2>{house.address} in {house.city}</h2>
+            <h3>{house.price}</h3>
+            <h4>{house.square_feet}</h4>
+          </Card>))
+      }
+    </Container>
   )
 };
 
