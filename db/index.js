@@ -30,15 +30,16 @@ const getHousesById = (req, res) => {
 };
 
 const createHouse = (req, res) => {
-  const { name, price } = req.body;
+  console.log(req.body)
+  const { address, price, square_feet, num_bed, num_bath, garage, num_stories, swimming_pool, available, city } = req.body;
   pool.query(
-    "INSERT INTO house (name, price) VALUES ($1, $2)",
-    [name, price],
+    "INSERT INTO house (address, price, square_feet, num_bed, num_bath, garage, num_stories, swimming_pool, available, city) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)",
+    [address, price, square_feet, num_bed, num_bath, garage, num_stories, swimming_pool, available, city],
     (error, results) => {
       if (error) {
         throw error;
       }
-      res.status(201).send("Home added");
+      res.status(201).json({ msg: "home added"});
     }
   );
 };
