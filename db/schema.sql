@@ -8,6 +8,7 @@ create table house (
   garage boolean,
   num_stories integer,
   swimming_pool boolean,
+  available boolean,
   city VARCHAR(30)
 );
 INSERT INTO house (
@@ -19,16 +20,18 @@ INSERT INTO house (
     garage,
     num_stories,
     swimming_pool,
+    available,
     city
   )
 VALUES(
-    '123 fake street',
+    '321 fake street',
     1500,
     1500,
     3,
     2,
     true,
     1,
+    true,
     true,
     'Phoenix'
   );
