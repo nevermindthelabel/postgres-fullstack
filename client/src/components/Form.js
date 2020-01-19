@@ -22,12 +22,6 @@ const Forms = () => {
   };
 
   const handleClick = e => {
-    // const target = e.target;
-    // const value = target.type === 'checkbox' ? target.checked : target.value;
-    // const name = target.name;
-    // setFormData({
-    //   [name]: value
-    // });
     setFormData(prevState => ({
       garage: !prevState.garage
     }))
@@ -114,10 +108,6 @@ const Forms = () => {
             placeholder="Stories"
           />
         </Form.Group>
-        {/* <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="garage" value={garage}
-            onChange={e => setFormData({[e.target.name]: !e.target.value})}/>
-        </Form.Group> */}
         <Form.Group controlId="formBasicGarage">
           <Form.Label>Is there a Garage?</Form.Label>
           <Form.Control
@@ -132,7 +122,6 @@ const Forms = () => {
           type="submit"
           onClick={e => {
             e.preventDefault();
-            console.log(formData);
             api.houses.newHouse(formData);
             setFormData({
               address: '',
