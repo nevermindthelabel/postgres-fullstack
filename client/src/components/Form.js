@@ -11,28 +11,30 @@ const Forms = () => {
     num_bath: 0,
     num_stories: 0,
     city: '',
-    garage: false,
-    swimming_pool: false,
-    available: true
+    // garage: false,
+    // swimming_pool: false,
+    // available: true
   });
+
+  const [garage, setGarage] = useState(false)
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleClick = e => {
-    setFormData(prevState => ({
-      garage: !prevState.garage
-    }))
-  }
+  // const handleClick = e => {
+  //   setFormData(prevState => ({
+  //     garage: !prevState.garage
+  //   }))
+  // }
 
   const { address, price, square_feet, num_bed, num_bath,
-    num_stories, city, garage, swimming_pool, available } = formData;
+    num_stories, city, /*garage, swimming_pool, available*/ } = formData;
 
   // const { garage, swimming_pool, available } = formData.checked;
 
-  console.log(formData);
+  console.log(garage);
 
   return (
     <div>
@@ -108,7 +110,7 @@ const Forms = () => {
             placeholder="Stories"
           />
         </Form.Group>
-        <Form.Group controlId="formBasicGarage">
+        {/* <Form.Group controlId="formBasicGarage">
           <Form.Label>Is there a Garage?</Form.Label>
           <Form.Control
             type="checkbox"
@@ -116,7 +118,15 @@ const Forms = () => {
             value={garage}
             onChange={handleClick}
           />
-        </Form.Group>
+        </Form.Group> */}
+        <label>
+         Garage
+          <input
+            name="garage"
+            type="checkbox"
+            checked={garage}
+            onChange={() => setGarage(!garage)} />
+        </label>
         <Button
           variant="primary"
           type="submit"
