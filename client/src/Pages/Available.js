@@ -26,6 +26,7 @@ const Available = () => {
             <h4>Bedrooms: {house.num_bed}</h4>
             <h4>Bathrooms: {house.num_bath}</h4>
             <h4>Pool: {!house.swimming_pool ? 'No' : 'Yes'}</h4>
+            <h4>Available: {!house.available ? 'No' : 'Yes'}</h4>
           </Card>))
       }
     </Container>
