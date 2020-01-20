@@ -1,6 +1,5 @@
 import React, { } from 'react';
 import { Container } from 'react-bootstrap';
-import Form from '../components/Form';
 
 const Home = () => {
 
