@@ -99,15 +99,6 @@ const Forms = () => {
             placeholder="Stories"
           />
         </Form.Group>
-        {/* <Form.Group controlId="formBasicGarage">
-          <Form.Label>Is there a Garage?</Form.Label>
-          <Form.Control
-            type="checkbox"
-            name="garage"
-            value={garage}
-            onChange={handleClick}
-          />
-        </Form.Group> */}
         <label>
          Garage
           <input
