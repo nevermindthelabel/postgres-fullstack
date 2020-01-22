@@ -11,30 +11,19 @@ const Forms = () => {
     num_bath: 0,
     num_stories: 0,
     city: '',
-    // garage: false,
-    // swimming_pool: false,
-    // available: true
   });
 
-  const [garage, setGarage] = useState(false)
+  const [garage, setGarage] = useState(false);
+  const [swimmingPool, setSwimmingPool] = useState(false);
+  const [available, setAvailable] = useState(true);
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // const handleClick = e => {
-  //   setFormData(prevState => ({
-  //     garage: !prevState.garage
-  //   }))
-  // }
-
   const { address, price, square_feet, num_bed, num_bath,
-    num_stories, city, /*garage, swimming_pool, available*/ } = formData;
-
-  // const { garage, swimming_pool, available } = formData.checked;
-
-  console.log(garage);
+    num_stories, city } = formData;
 
   return (
     <div>
