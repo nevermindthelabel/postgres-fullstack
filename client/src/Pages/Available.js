@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 import axios from 'axios';
+import api from '../utils/api';
+// import Buttons from '../components/Button/Button'
 
 const Available = () => {
   const [available, setAvilable] = useState([]);
@@ -27,7 +29,7 @@ const Available = () => {
             <h4>Bathrooms: {house.num_bath}</h4>
             <h4>Pool: {!house.swimming_pool ? 'No' : 'Yes'}</h4>
             <h4>Available: {!house.available ? 'No' : 'Yes'}</h4>
-            {/* <Button variant="danger" onClick={() => console.log(`you clicked a button with the id of ${house.id}`)}>Remove</Button> */}
+            <Button variant="danger" onClick={() => api.houses.removeHouse(house.id).then(axios.get('/api/houses').then(data => setAvilable(data.data)))}>Remove</Button>
           </Card>))
       }
     </Container>
