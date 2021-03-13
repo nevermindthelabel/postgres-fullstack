@@ -112,7 +112,7 @@ const Forms = () => {
           type="submit"
           onClick={e => {
             e.preventDefault();
-            api.houses.newHouse(formData);
+            api.houses.newHouse(formData, garage);
             setFormData({
               address: '',
               price: 0,
